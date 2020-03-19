@@ -1,0 +1,1 @@
+here you shall find logs from apache and app.php

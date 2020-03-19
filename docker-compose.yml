@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  proxy:
+    image: webdevops/php-apache
+    environment:
+      - PROXY_TO=${PROXY_TO}
+      - PASSPHRASE=${PASSPHRASE}
+    ports:
+      - ${PORT}:80
+    volumes:
+      - ./config/openssl.cnf:/etc/ssl/openssl.cnf
+      - ./app:/app
+      - ./cert:/cert
+      - ./logs:/var/log/
+      - ./config/20-logoverride.conf:/opt/docker/etc/httpd/conf.d/20-logoverride.conf
